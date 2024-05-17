@@ -1,0 +1,101 @@
+/* Estilos Inicio */
+.inicio {
+    background-color: white;
+    flex: 0 0 75%;
+    max-width: 75%;
+    margin-left: 20px;
+  }
+  .habito {
+    background-color: #e8f5fd;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 13px 10px 50px;
+  }
+  @media (max-width: 991px) {
+    .habito {
+      max-width: 100%;
+      flex-wrap: wrap;
+    }
+  }
+
+  .infoHabito {
+    display: flex;
+    margin-top: 4px;
+    flex-grow: 1;
+    flex-basis: 0%;
+    flex-direction: column;
+    width: 100%;
+  }
+  .tituloHabito{
+    color: #000;
+    font: 700 20px Arial, sans-serif;
+  }
+  .descripHabito {
+    color: #000;
+    margin-top: 30px;
+    font: 400 16px Arial, sans-serif;
+  }
+  .progreso {
+    display: flex;
+    margin-top: 5px;
+    flex-grow: 1;
+    flex-basis: 0%;
+    flex-direction: column;
+    width: 100%;
+  }
+  .tituloProgreso {
+    color: #000;
+    white-space: nowrap;
+    font: 700 20px Arial, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .tituloProgeso {
+      white-space: initial;
+    }
+  }
+
+  /* Barra de progreso*/
+  .containerBarraProgreso {
+    width: 50%;
+    background-color: white;
+
+    margin-top: 26px;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 20px;
+    width: 300px;
+}
+
+.barraProgreso {
+    width: 0;
+    height: 30px;
+    background-color: #4caf50;
+    text-align: center;
+    line-height: 30px;
+}
+  .img-1 {
+    aspect-ratio: 1.08;
+    object-fit: contain;
+    object-position: center;
+    width: 27px;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .img-2 {
+    aspect-ratio: 0.91;
+    object-fit: contain;
+    object-position: center;
+    width: 21px;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .img-3 {
+    aspect-ratio: 1.04;
+    object-fit: contain;
+    object-position: center;
+    width: 24px;
+    overflow: hidden;
+    max-width: 100%;
+  }

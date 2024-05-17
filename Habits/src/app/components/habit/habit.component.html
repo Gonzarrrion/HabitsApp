@@ -1,0 +1,28 @@
+<app-top-navbar></app-top-navbar>
+
+  <div class="content">
+    <app-side-navbar></app-side-navbar>
+
+    <div class="inicio">
+    <div *ngFor="let habito of habitos" class="habito">
+      <span class="infoHabito">
+        <div class="tituloHabito">{{ habito.nombre }}</div>
+        <div class="descripHabito">{{ habito.descripcion }}</div>
+      </span>
+      <span class="progreso">
+        <div class="tituloProgreso">Progreso</div>
+        <div class="containerBarraProgreso">
+          <div class="barraProgreso" [style.width]="habito.progreso + '%'"></div>
+        </div>
+      </span>
+      <a href="#" (click)="fijarHabito($event, habito.id)" class="img-1">
+        <img src="../../../assets/Imagenes/Fijar habito.png">
+      </a>
+      <a (click)="editHabito(habito.id)" routerLink="/edit-habit/:id" class="img-2">
+        <img src="../../../assets/Imagenes/Configuracion.png">
+      </a>
+      <a href="#" (click)="eliminarHabito($event, habito.id)" class="img-3">
+        <img src="../../../assets/Imagenes/Eliminar.png">
+      </a>
+    </div>
+  </div> 

@@ -1,0 +1,69 @@
+<app-top-navbar></app-top-navbar>
+
+  <div class="content">
+    <app-side-navbar></app-side-navbar>
+    <div class="configuracion">
+        <div class="tituloConfiguracion">Configuracion</div>
+
+        <div class="columnas">
+
+            <div class="columna">
+                <div class="tituloColumna">Datos Actuales del Hábito</div>
+            
+                <div class="texto"><strong>Nombre del Hábito:</strong></div>
+                <div class="texto"><em>{{ habito?.nombre }}</em></div>
+            
+                <div class="texto"><strong>Descripción del Hábito:</strong></div>
+                <div class="texto"><em>{{ habito?.descripcion }}</em></div>
+            
+                <div class="texto"><strong>Frecuencia:</strong></div>
+                <div class="texto"><em>{{ habito?.frecuencia }}</em></div>
+            
+                <div class="texto"><strong>Meta Asociada:</strong></div>
+                <div class="texto"><em>{{ habito?.meta }}</em></div>
+            
+                <div class="texto"><strong>Visualización:</strong></div>
+                <div class="texto"><em>{{ habito?.visualizacion }}</em></div>
+            </div>
+
+            <div class="columna">
+                <div class="tituloColumna">Editar Hábito</div>
+            <form id="formulario" class="formulario">
+                <div class="texto">Nombre del Hábito:</div>
+                <input type="text" class="input" required [(ngModel)]="habitoNuevo.nombre" name="nombreHabito">
+
+                <div class="texto">Frecuencia:</div>
+                <select required class="desplegable" [(ngModel)]="habitoNuevo.frecuencia">
+                    <option value="{{ habitoNuevo.frecuencia }}">Diario</option>
+                    <option value="{{ habitoNuevo.frecuencia }}">Semanal</option>
+                    <option value="{{ habitoNuevo.frecuencia }}">Mensual</option>
+                    <option value="{{ habitoNuevo.frecuencia }}">Anual</option>
+                </select>
+
+                <div class="texto">Meta Asociada:</div>
+                <input type="number" min="1" required class="input" [(ngModel)]="habitoNuevo.meta" name="metaHabito">
+
+                <div class="texto">Visualización:</div>
+                <div class="opcionesVisualizar">
+                    <label class="texto">
+                        <input type="radio" name="visualizacion" value="tick" [(ngModel)]="habitoNuevo.visualizacion">
+                        Tick:
+                    </label>
+                    <img loading="lazy" src="../../../assets/Imagenes/tick.svg" class="img">
+                    <label class="texto">
+                        <input type="radio" name="visualizacion" value="barra" [(ngModel)]="habitoNuevo.visualizacion">
+                        Barra de Progreso:
+                    </label>
+                    <img loading="lazy" src="../../../assets/Imagenes/barraProgreso.svg" class="img">
+                </div>
+
+                <div class="texto">Descripción del Hábito:</div>
+                <textarea class="inputGrande" [(ngModel)]="habitoNuevo.descripcion" name="descripcionHabito"></textarea>
+
+                <span class="botonRegistrarCambios" (click)="editHabito()">Registrar Cambios</span>
+            </form>
+            
+            </div>
+        </div>
+
+        </div>

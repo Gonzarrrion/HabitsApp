@@ -1,0 +1,50 @@
+<app-top-navbar></app-top-navbar>
+
+  <div class="content">
+    <app-side-navbar></app-side-navbar>
+    <div class="informes">
+        <div class="tituloInformes">Informes</div>
+
+        <form id="formularioInformes">
+            <div class="texto">Escoja las fechas:
+            <select class="desplegable" id="seleccionFechas">
+                <option value="1dia">1 Día</option>
+                <option value="1semana">1 Semana</option>
+                <option value="1mes">1 Mes</option>
+                <option value="1ano">1 Año</option>
+            </select>
+            </div>
+            <span class="botonMostrarInformes" onclick="mostrarInformes()">Mostrar Informes</span>
+        </form>
+
+        <div class="columnas">
+
+            <div class="columna">
+
+                <div class="tituloColumna">Media de cumplimiento total de todos los hábitos</div>
+
+                <img loading="lazy" src="../../../assets/Imagenes/Barra cumplimiento.png" class="img">
+                    <div id="mediaCumplimiento"><!-- Aqui se sacaria la media de cumplimiento de un json
+                    con los datos de los registros diarios --></div>
+            </div>
+
+            <div class="columna">
+                <div class="tituloColumna">Sugerencias</div>
+
+                <div class="contenidoColumna">
+                    <!-- Para esto habra un fichero de objetos json que nos hara unas sugerencias u otras dependiendo 
+                        del porcentaje de cumplimiento -->
+                    <p>Ejemplo de sugerencias para mejorar sus hábitos:</p>
+                    <ul>
+                        <li>Incrementar la frecuencia de ejercicio.</li>
+                        <br>
+                        <li>Establecer metas más realistas.</li>
+                        <br>
+                        <li>Revisar y ajustar la planificación diaria.</li>
+                        <br>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>

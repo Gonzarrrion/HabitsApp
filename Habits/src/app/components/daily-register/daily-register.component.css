@@ -1,0 +1,135 @@
+/* Estilos Registro Diario */
+.registroDiario {
+    background-color: white;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    width: 70%;
+  }
+  @media (max-width: 991px) {
+    .inicio {
+      max-width: 100%;
+      margin-top: 13px;
+      padding: 0 20px;
+    }
+  }
+  
+  .habito {
+    background-color: #e8f5fd;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 13px 10px 50px;
+    margin-top: 20px;
+  }
+  @media (max-width: 991px) {
+    .habito {
+      max-width: 100%;
+      flex-wrap: wrap;
+    }
+  }
+  .columna2 {
+      width: 50%; 
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .columna1 {
+      flex-grow: 1;
+  }
+  
+  .infoHabito {
+    display: flex;
+    margin-top: 4px;
+    flex-grow: 1;
+    flex-basis: 0%;
+    flex-direction: column;
+    width: 100%;
+  }
+  .tituloHabito{
+    color: #000;
+    font: 700 20px Arial, sans-serif;
+  }
+  .descripHabito {
+    color: #000;
+    margin-top: 30px;
+    font: 400 16px Arial, sans-serif;
+  }
+  .progreso {
+    display: flex;
+    margin-top: 5px;
+    flex-direction: column;
+  }
+  .tituloProgreso {
+    color: #000;
+    white-space: nowrap;
+    font: 700 20px Arial, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .tituloProgeso {
+      white-space: initial;
+    }
+  }
+  
+  /* Barra de progreso*/
+  .containerBarraProgreso {
+    width: 50%;
+    background-color: white;
+    margin-top: 26px;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 20px;
+    width: 60%;
+  }
+  
+  .barraProgreso {
+    width: 0;
+    height: 30px;
+    background-color: #4caf50;
+    text-align: center;
+    line-height: 30px;
+  }
+  
+  .registroCumplimiento {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .tituloRegistro {
+    color: #000;
+    font: 700 20px Arial, sans-serif;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .cumplidos {
+    color: #000;
+    font: 400 16px Arial, sans-serif;
+    margin-top: 20px;
+  }
+  
+  .inputCumplidos {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    height: 30px;
+    width: 50%;
+    margin-left: 10px;
+  }
+  @media (max-width: 991px) {
+    .habito {
+        max-width: 100%;
+        flex-wrap: wrap;
+    }
+  }
+  
+  .numeroMeta{
+    color: #000;
+    font: 400 32px Arial, sans-serif;
+    font-weight: bold;
+    margin-left: 10px;
+    vertical-align: middle;
+    margin-top: 20px;
+  }
+  

@@ -1,0 +1,35 @@
+<app-top-navbar></app-top-navbar>
+
+  <div class="content">
+    <app-side-navbar></app-side-navbar>
+<div class="registroDiario">
+            
+    <ng-container *ngFor="let habito of habitos">
+        <div class="habito" *ngIf="habito.progreso >= 0 && habito.progreso < 100">
+            <div class="columna1">
+                <span class="infoHabito">
+                    <div class="tituloHabito">{{ habito.nombre }}</div>
+                    <div class="descripHabito">{{ habito.descripcion }}</div>
+                </span>
+            </div>
+            <div class="columna2">
+                <span class="progreso">
+                    <div class="tituloProgreso">Progreso</div>
+                    <div class="containerBarraProgreso">
+                        <div class="barraProgreso" [style.width.%]="habito.progreso"></div>
+                    </div>
+                </span>
+                <div class="registroCumplimiento">
+                        <div class="tituloRegistro">Registrar Cumplimiento</div>
+                        <div class="numeroMeta">{{ habito.meta }}</div>
+                          <div class="cumplidos">
+                              Cumplidos: <input type="number" class="inputCumplidos" min="0" [(ngModel)]="habito.cumplidos">
+                          </div>
+                </div>
+            </div>
+            <a href="/daily-register" (click)="registrarCumplimiento($event, habito)" class="btnGuardar"><img loading="lazy" src="../../../assets/Imagenes/Icono Guardar.png"></a>
+  
+        </div>
+    </ng-container>
+
+   

@@ -1,0 +1,183 @@
+/* Estilos Configuracion */
+.configuracion {
+    background-color: #e8f5fd;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    width: 70%;
+    padding: 21px 80px 50px 45px;
+  }
+  @media (max-width: 991px) {
+    .informes {
+      padding: 0 20px;
+    }
+  }
+  
+  .tituloConfiguracion {
+    justify-content: center;
+    color: #000;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 30px;
+    font: 700 20px Arial, sans-serif;
+  }
+  
+  .texto {
+    color: #000;
+    align-self: stretch;
+    font: 400 16px Arial, sans-serif;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-left: 10px;
+  }
+  @media (max-width: 991px) {
+    .texto {
+      max-width: 100%;
+      flex-direction: column;
+      align-items: start;
+    }
+  }
+  
+  .columnas {
+    align-self: start;
+    overflow: scroll;
+    display: flex;
+    margin-top: 30px;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    justify-content: space-between;
+    position: relative;
+    align-items: stretch;
+  }
+  @media (max-width: 991px) {
+    .columnas {
+      flex-direction: column;
+    }
+  }
+  
+  .columna{
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    padding-top: 40px;
+    padding-left: 10px;
+    padding-bottom: 20px;
+  }
+  @media (max-width: 991px) {
+    .columna {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  }
+  
+  .tituloColumna {
+    color: #000;
+    font: 700 20px Arial, sans-serif;
+    padding: 10px;
+  }
+
+  .formulario {
+    align-self: start;
+    display: flex;
+    margin-top: 88px;
+    width: 600px;
+    max-width: 100%;
+    flex-direction: column;
+  }
+  @media (max-width: 991px) {
+    .formulario {
+      margin-top: 40px;
+    }
+  }
+
+  .input {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    align-self: stretch;
+    display: flex;
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 37px;
+    flex-direction: column;
+    width: 90%;
+    font: 400 16px Arial, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .input {
+      max-width: 100%;
+    }
+  }
+  
+  .desplegable {
+    justify-content: center;
+    color: #000;
+    text-align: center;
+    width: 92%;
+    border-radius: 5px;
+    border: 1px solid #767676;
+    background-color: #efefef;
+    align-self: stretch;
+    margin-top: 15px;
+    align-items: center;
+    padding: 13px 60px;
+    margin-left: 10px;
+    font: italic 400 16px Arial, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .desplegable {
+      max-width: 100%;
+      padding: 0 20px;
+    }
+  }
+  
+  .opcionesVisualizar {
+    align-self: start;
+    display: flex;
+    width: 85%;
+    max-width: 100%;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .inputGrande {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    display: flex;
+    width: 90%;
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 50px;
+    flex-direction: column;
+    font: 400 16px Arial, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .inputTextoGrande {
+      max-width: 100%;
+    }
+  }
+  .botonRegistrarCambios{
+    color: #fff;
+    display: flex;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #1da1f2;
+    align-self: start;
+    width: 30%;
+    margin-top: 33px;
+    margin-left: 10px;
+    justify-content: center;
+    padding: 12px 19px;
+    font: 400 15px Arial, sans-serif;
+  }
+  .botonRegistrarCambios:hover {
+    background-color: #2688ff;
+    cursor: pointer;
+  }

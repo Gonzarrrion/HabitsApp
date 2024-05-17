@@ -1,0 +1,42 @@
+<app-top-navbar></app-top-navbar>
+
+  <div class="content">
+    <app-side-navbar></app-side-navbar>
+    <div class="anadirHabito">
+        <div class="tituloAnadir">Añadir Hábito</div>
+        <form id="formulario">
+            <div class="texto">Nombre del Hábito:</div>
+            <input type="text" class="input" required [(ngModel)]="habito.nombre" name="nombreHabito">
+
+            <div class="texto">Frecuencia:</div>
+            <select required class="desplegable" [(ngModel)]="habito.frecuencia">
+                <option value="{{ habito.frecuencia }}">Diario</option>
+                <option value="{{ habito.frecuencia }}">Semanal</option>
+                <option value="{{ habito.frecuencia }}">Mensual</option>
+                <option value="{{ habito.frecuencia }}">Anual</option>
+            </select>
+            
+
+            <div class="texto">Meta Asociada:</div>
+            <input type="number" min="1" required class="input" [(ngModel)]="habito.meta" name="metaHabito">
+
+            <div class="texto">Visualización:</div>
+            <div class="opcionesVisualizar">
+                <label class="texto">
+                    <input type="radio" name="visualizacion" value="tick" [(ngModel)]="habito.visualizacion">
+                    Tick:
+                </label>
+                <img loading="lazy" src="../../../assets/Imagenes/tick.svg" class="img">
+                <label class="texto">
+                    <input type="radio" name="visualizacion" value="barra" [(ngModel)]="habito.visualizacion">
+                    Barra de Progreso:
+                </label>
+                <img loading="lazy" src="../../../assets/Imagenes/barraProgreso.svg" class="img">
+            </div>
+
+            <div class="texto">Descripción del Hábito:</div>
+            <textarea class="inputGrande" [(ngModel)]="habito.descripcion" name="descripcionHabito"></textarea>
+
+            <span class="botonRegistrar" (click)="addHabito()">Registrar</span>
+        </form>
+    </div>
