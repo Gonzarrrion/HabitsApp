@@ -2,8 +2,8 @@ import { Component, OnInit, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule, NgFor } from '@angular/common';
 import { Habito, HabitoService } from '../../servicios/habito.service';
-import { TopNavbarComponent } from '../../top-navbar/top-navbar.component';
-import { SideNavbarComponent } from '../../side-navbar/side-navbar.component';
+import { TopNavbarComponent } from '../top-navbar/top-navbar.component';
+import { SideNavbarComponent } from '../side-navbar/side-navbar.component';
 
 @Component({
   selector: 'app-reports',

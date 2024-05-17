@@ -1,0 +1,62 @@
+[
+    {
+      "id": 1,
+      "nombre": "Habito 1",
+      "descripcion": "Descripcion del habito 1",
+      "progreso": 0,
+      "cumplidos": 0,
+      "meta": 10,
+      "frecuencia": "dia",
+      "visualizacion": "tick",
+      "posicionLista": 1,
+      "ultimoReset": "2022-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "nombre": "Habito 2",
+      "descripcion": "Descripcion del habito 2",
+      "progreso": 0,
+      "cumplidos": 0,
+      "meta": 10,
+      "frecuencia": "semana",
+      "visualizacion": "barra",
+      "posicionLista": 2,
+      "ultimoReset": "2022-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "nombre": "Habito 3",
+      "descripcion": "Descripcion del habito 3",
+      "progreso": 0,
+      "cumplidos": 0,
+      "meta": 10,
+      "frecuencia": "mes",
+      "visualizacion": "tick",
+      "posicionLista": 3,
+      "ultimoReset": "2022-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "nombre": "Habito 4",
+      "descripcion": "Descripcion del habito 4",
+      "progreso": 0,
+      "cumplidos": 0,
+      "meta": 10,
+      "frecuencia": "ano",
+      "visualizacion": "barra",
+      "posicionLista": 4,
+      "ultimoReset": "2022-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "nombre": "Habito 5",
+      "descripcion": "Descripcion del habito 5",
+      "progreso": 0,
+      "cumplidos": 0,
+      "meta": 10,
+      "frecuencia": "dia",
+      "visualizacion": "tick",
+      "posicionLista": 5,
+      "ultimoReset": "2022-01-01T00:00:00.000Z"
+    }
+  ]

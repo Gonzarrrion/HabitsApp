@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { HabitoService, Habito, Frecuencia, Visualizacion } from '../servicios/habito.service';
+import { HabitoService, Habito, Frecuencia, Visualizacion } from '../../servicios/habito.service';
 import { SideNavbarComponent } from '../side-navbar/side-navbar.component';
 import { TopNavbarComponent } from '../top-navbar/top-navbar.component';
 import { ActivatedRoute } from '@angular/router';
