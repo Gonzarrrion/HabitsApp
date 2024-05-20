@@ -1,15 +1,17 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule, NgFor } from '@angular/common';
-import { Habito, HabitoService } from '../../servicios/habito.service';
+import { HabitosService } from '../../servicios/habito.service';
+import { Habito } from '../../models/habito';
 import { TopNavbarComponent } from '../top-navbar/top-navbar.component';
 import { SideNavbarComponent } from '../side-navbar/side-navbar.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-daily-register',
   standalone: true,
-  imports: [RouterLink, CommonModule, NgFor, TopNavbarComponent, SideNavbarComponent, FormsModule],
+  imports: [RouterLink, CommonModule, NgFor, TopNavbarComponent, SideNavbarComponent, FormsModule, HttpClientModule],
   templateUrl: './daily-register.component.html',
   styleUrl: './daily-register.component.css'
 })
@@ -17,10 +19,12 @@ export class DailyRegisterComponent implements OnInit{
   
   habitos: Habito[] = [];
 
-  constructor(private habitoService: HabitoService) { }
+  constructor(private habitosService: HabitosService) { }
 
   ngOnInit() {
-    this.habitos = this.habitoService.getHabitos();
+    this.habitosService.getHabitos().subscribe(habitos => {
+      this.habitos = habitos;
+    });
   }
 
   registrarCumplimiento(event: Event, habito: Habito) {
@@ -29,6 +33,10 @@ export class DailyRegisterComponent implements OnInit{
     if (habito.progreso > 100) {
       habito.progreso = 100;
     }
-    this.habitos = [...this.habitoService.getHabitos()];
+    this.habitosService.updateHabito(habito.id.toString(), habito).subscribe(() => {
+      this.habitosService.getHabitos().subscribe(habitos => {
+        this.habitos = habitos;
+      });
+    });
   }
 }

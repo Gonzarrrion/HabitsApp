@@ -1,6 +1,7 @@
 import {
   Title
-} from "./chunk-HVUDDNBE.js";
+} from "./chunk-O5QTEVWQ.js";
+import "./chunk-UTLVR4YW.js";
 import {
   DOCUMENT,
   HashLocationStrategy,
@@ -9,7 +10,7 @@ import {
   LocationStrategy,
   PathLocationStrategy,
   ViewportScroller
-} from "./chunk-YB7WXP4O.js";
+} from "./chunk-C6P4HLFX.js";
 import {
   APP_BOOTSTRAP_LISTENER,
   APP_INITIALIZER,
@@ -51,6 +52,7 @@ import {
   Subscription,
   Version,
   ViewContainerRef,
+  __async,
   __spreadProps,
   __spreadValues,
   afterNextRender,
@@ -112,7 +114,7 @@ import {
   ɵɵloadQuery,
   ɵɵqueryRefresh,
   ɵɵsanitizeUrlOrResourceUrl
-} from "./chunk-5YL2E2YL.js";
+} from "./chunk-IIXUBVVP.js";
 
 // node_modules/@angular/router/fesm2022/router.mjs
 var PRIMARY_OUTLET = "primary";
@@ -1807,12 +1809,29 @@ var RouterOutlet = _RouterOutlet;
     }]
   });
 })();
-var OutletInjector = class {
+var OutletInjector = class _OutletInjector {
+  /**
+   * This injector has a special handing for the `ActivatedRoute` and
+   * `ChildrenOutletContexts` tokens: it returns corresponding values for those
+   * tokens dynamically. This behavior is different from the regular injector logic,
+   * when we initialize and store a value, which is later returned for all inject
+   * requests.
+   *
+   * In some cases (e.g. when using `@defer`), this dynamic behavior requires special
+   * handling. This function allows to identify an instance of the `OutletInjector` and
+   * create an instance of it without referring to the class itself (so this logic can
+   * be invoked from the `core` package). This helps to retain dynamic behavior for the
+   * mentioned tokens.
+   *
+   * Note: it's a temporary solution and we should explore how to support this case better.
+   */
+  __ngOutletInjector(parentInjector) {
+    return new _OutletInjector(this.route, this.childContexts, parentInjector);
+  }
   constructor(route, childContexts, parent) {
     this.route = route;
     this.childContexts = childContexts;
     this.parent = parent;
-    this.__ngOutletInjector = true;
   }
   get(token, notFoundValue) {
     if (token === ActivatedRoute) {
@@ -3350,7 +3369,7 @@ function createViewTransition(injector, from2, to) {
   return injector.get(NgZone).runOutsideAngular(() => {
     if (!document.startViewTransition || transitionOptions.skipNextTransition) {
       transitionOptions.skipNextTransition = false;
-      return Promise.resolve();
+      return new Promise((resolve) => setTimeout(resolve));
     }
     let resolveViewTransitionStarted;
     const viewTransitionStarted = new Promise((resolve) => {
@@ -5010,6 +5029,7 @@ var _RouterScroller = class _RouterScroller {
     this.lastSource = "imperative";
     this.restoredId = 0;
     this.store = {};
+    this.environmentInjector = inject(EnvironmentInjector);
     options.scrollPositionRestoration ||= "disabled";
     options.anchorScrolling ||= "disabled";
   }
@@ -5056,13 +5076,21 @@ var _RouterScroller = class _RouterScroller {
     });
   }
   scheduleScrollEvent(routerEvent, anchor) {
-    this.zone.runOutsideAngular(() => {
-      setTimeout(() => {
-        this.zone.run(() => {
-          this.transitions.events.next(new Scroll(routerEvent, this.lastSource === "popstate" ? this.store[this.restoredId] : null, anchor));
+    this.zone.runOutsideAngular(() => __async(this, null, function* () {
+      yield new Promise((resolve) => {
+        setTimeout(() => {
+          resolve();
         });
-      }, 0);
-    });
+        afterNextRender(() => {
+          resolve();
+        }, {
+          injector: this.environmentInjector
+        });
+      });
+      this.zone.run(() => {
+        this.transitions.events.next(new Scroll(routerEvent, this.lastSource === "popstate" ? this.store[this.restoredId] : null, anchor));
+      });
+    }));
   }
   /** @nodoc */
   ngOnDestroy() {
@@ -5498,7 +5526,7 @@ function mapToCanDeactivate(providers) {
 function mapToResolve(provider) {
   return (...params) => inject(provider).resolve(...params);
 }
-var VERSION = new Version("17.3.4");
+var VERSION = new Version("17.3.9");
 export {
   ActivatedRoute,
   ActivatedRouteSnapshot,
@@ -5581,7 +5609,7 @@ export {
 
 @angular/router/fesm2022/router.mjs:
   (**
-   * @license Angular v17.3.4
+   * @license Angular v17.3.9
    * (c) 2010-2024 Google LLC. https://angular.io/
    * License: MIT
    *)

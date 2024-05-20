@@ -1,13 +1,16 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, NgModule } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule, NgFor } from '@angular/common';
-import { Habito, HabitoService } from '../../servicios/habito.service';
+import { HabitosService } from '../../servicios/habito.service';
+import { Habito } from '../../models/habito';
 import { TopNavbarComponent } from '../top-navbar/top-navbar.component'; 
 import { SideNavbarComponent } from '../side-navbar/side-navbar.component'
+import { HttpClientModule } from '@angular/common/http';
+
 @Component({
   selector: 'app-habit',
   standalone: true,
-  imports: [RouterLink, CommonModule, NgFor, TopNavbarComponent, SideNavbarComponent],
+  imports: [RouterLink, CommonModule, NgFor, TopNavbarComponent, SideNavbarComponent, HttpClientModule],
   templateUrl: './habit.component.html',
   styleUrl: './habit.component.css'
 })
@@ -15,22 +18,24 @@ import { SideNavbarComponent } from '../side-navbar/side-navbar.component'
 export class HabitComponent implements OnInit {
   habitos: Habito[] = [];
 
-  constructor(private router: Router, private habitoService: HabitoService) { }
+  constructor(private router: Router, private habitosService: HabitosService) { }
 
   ngOnInit() {
-    this.habitos = JSON.parse(localStorage.getItem('habitos') as string) || [];
+    this.habitosService.getHabitos().subscribe(habitos => this.habitos = habitos);
   }
 
-  fijarHabito(event: Event, id: number) {
+  /*fijarHabito(event: Event, id: number) {
     event.preventDefault();
-    this.habitoService.fijarHabito(id);
-    this.habitos = [...this.habitoService.getHabitos()];
-  }
+    this.habitosService.fijarHabito(id).subscribe(() => {
+      this.habitosService.getHabitos().subscribe(habitos => this.habitos = habitos);
+    });
+  }*/
 
   eliminarHabito(event: Event, id: number) {
     event.preventDefault();
-    this.habitoService.eliminarHabito(id);
-    this.habitos = [...this.habitoService.getHabitos()];
+    this.habitosService.deleteHabito(id.toString()).subscribe(() => {
+      this.habitosService.getHabitos().subscribe(habitos => this.habitos = habitos);
+    });
   }
 
   editHabito(habitoId: number) {
