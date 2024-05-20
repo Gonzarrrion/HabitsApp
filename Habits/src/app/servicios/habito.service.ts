@@ -34,7 +34,7 @@ export class HabitosService {
   deleteHabito(id: string): Observable<Habito> {
     return this.http.delete<Habito>(`${this.apiUrl}/${id}`);
   }
-/*
+
   fijarHabito(id: number): Observable<void> {
     return new Observable<void>(subscriber => {
       this.getHabitoById(id.toString()).subscribe(habito => {
@@ -52,5 +52,5 @@ export class HabitosService {
         }
       });
     });
-  }*/
+  }
 }

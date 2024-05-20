@@ -24,12 +24,12 @@ export class HabitComponent implements OnInit {
     this.habitosService.getHabitos().subscribe(habitos => this.habitos = habitos);
   }
 
-  /*fijarHabito(event: Event, id: number) {
+  fijarHabito(event: Event, id: number) {
     event.preventDefault();
     this.habitosService.fijarHabito(id).subscribe(() => {
       this.habitosService.getHabitos().subscribe(habitos => this.habitos = habitos);
     });
-  }*/
+  }
 
   eliminarHabito(event: Event, id: number) {
     event.preventDefault();

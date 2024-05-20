@@ -15,9 +15,9 @@
           <div class="barraProgreso" [style.width]="habito.progreso + '%'"></div>
         </div>
       </span>
-      <!--<a href="#" (click)="fijarHabito($event, habito.id)" class="img-1">-->
+      <a href="#" (click)="fijarHabito($event, habito.id)" class="img-1">
         <img src="../../../assets/Imagenes/Fijar habito.png">
-     <!-- </a>-->
+      </a>
       <a (click)="editHabito(habito.id)" routerLink="/edit-habit/:id" class="img-2">
         <img src="../../../assets/Imagenes/Configuracion.png">
       </a>
