@@ -36,9 +36,11 @@ export class EditHabitComponent implements OnInit{
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
+    const habitId = Number(id);
 
-    if (id) {
-      this.habitosService.getHabitoById(id).subscribe(habito => {
+
+    if (habitId) {
+      this.habitosService.getHabitoById(habitId).subscribe(habito => {
         this.habito = habito;
         if (this.habito !== undefined) {
           this.habitoNuevo = { ...this.habito };
@@ -54,7 +56,7 @@ export class EditHabitComponent implements OnInit{
       if (this.habitoNuevo.meta !== this.habito.meta) {
         this.habitoNuevo.progreso = this.habito.progreso * ( this.habito.meta / this.habitoNuevo.meta );
       }
-      this.habitosService.updateHabito(this.habito.id.toString(), this.habitoNuevo).subscribe(() => {
+      this.habitosService.updateHabito(this.habito.id, this.habitoNuevo).subscribe(() => {
         this.router.navigate(['/habits']);
       });
     }

@@ -13,7 +13,6 @@ const Frecuencia = Object.freeze({
 });
 
 const HabitoSchema = new mongoose.Schema({
-  _id: mongoose.Schema.Types.ObjectId,
   id: Number,
   nombre: String,
   descripcion: String,

@@ -6,19 +6,20 @@ export interface Habito {
   progreso: number;
   cumplidos: number;
   meta: number;
-  frecuencia: string;
-  visualizacion: string;
+  frecuencia: Frecuencia;
+  visualizacion: Visualizacion;
   posicionLista: number;
   ultimoReset: Date;
 }
 
 export enum Frecuencia {
-  Dia = 'Dia',
-  Semana = 'Semana',
-  Mes = 'Mes'
+  Dia = 'dia',
+  Semana = 'semana',
+  Mes = 'mes',
+  Ano = 'ano'
 }
 
 export enum Visualizacion {
-  Tick = 'Tick',
-  Porcentaje = 'Porcentaje'
+  Tick = 'tick',
+  Barra = 'barra'
 }

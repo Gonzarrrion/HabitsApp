@@ -83,6 +83,7 @@
   flex-direction: column;
   line-height: normal;
   width: 23%;
+  min-width: 200px;
   margin-left: 0px;
 }
 
@@ -102,12 +103,13 @@
   padding: 22px 60px 22px 13px;
   font: 700 16px Arial, sans-serif;
   transition: background-color 0.3s;
+  box-sizing: border-box;
 }
 
 .opcion:hover {
   background-color: #5ba6ff;
   cursor: pointer;
-  font-size: 1.15em;
+  font-size: 1.1em;
 }
 
 .opcionActual {

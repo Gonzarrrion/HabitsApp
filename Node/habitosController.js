@@ -10,38 +10,59 @@ async function getHabitos(req, res) {
 
 // Obtener un hábito por ID
 async function getHabitoById(req, res) {
-  const habito = await Habito.findById(req.params.id);
-  if (habito) {
+  try {
+    const habito = await Habito.findOne({ id: req.params.id });
+    if (!habito) {
+      return res.status(404).json({ message: 'Habito no encontrado' });
+    }
     res.json(habito);
-  } else {
-    res.status(404).send('Hábito no encontrado');
+  } catch (err) {
+    res.status(500).json({ message: err.message });
   }
 }
 
 // Añadir un nuevo hábito
 async function addHabito(req, res) {
   const nuevoHabito = new Habito(req.body);
+
+  // Obtén el hábito con la ID más alta y agrega 1 para la nueva ID
+  const ultimoHabito = await Habito.findOne().sort('-id');
+  nuevoHabito.id = ultimoHabito ? ultimoHabito.id + 1 : 1;
+
+  // Establece los valores predeterminados para los otros campos
+  nuevoHabito.progreso = 0;
+  nuevoHabito.cumplidos = 0;
+  nuevoHabito.posicionLista = ultimoHabito ? ultimoHabito.posicionLista + 1 : 1;
+  nuevoHabito.ultimoReset = new Date();
+
   const resultado = await nuevoHabito.save();
   res.status(201).json(resultado);
 }
 
 // Actualizar un hábito
 async function updateHabito(req, res) {
-  const habito = await Habito.findByIdAndUpdate(req.params.id, req.body, { new: true });
-  if (habito) {
+  try {
+    const habito = await Habito.findOneAndUpdate({ id: req.params.id }, req.body, { new: true });
+    if (!habito) {
+      return res.status(404).send('Hábito no encontrado');
+    }
     res.json(habito);
-  } else {
-    res.status(404).send('Hábito no encontrado');
+  } catch (err) {
+    res.status(500).json({ message: err.message });
   }
 }
 
-// Eliminar un hábito
+/// Eliminar un hábito
 async function deleteHabito(req, res) {
-  const habito = await Habito.findByIdAndRemove(req.params.id);
-  if (habito) {
-    res.send('Hábito eliminado');
-  } else {
-    res.status(404).send('Hábito no encontrado');
+  try {
+    const habito = await Habito.findOneAndDelete({ id: req.params.id });
+    if (!habito) {
+      return res.status(404).json({ message: 'Hábito no encontrado' });
+    }
+    res.json({ message: 'Hábito eliminado' });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: err.message });
   }
 }
 

@@ -1,4 +1,7 @@
 /* Estilos Añadir Habito */
+.content {
+  display: flex;
+}
 .anadirHabito {
     background-color: #e8f5fd;
     display: flex;
@@ -6,6 +9,8 @@
     flex-direction: column;
     width: 100%;
     padding: 21px 80px 50px 45px;
+    margin-top: 10px;
+    margin-left: 20px;
   }
   @media (max-width: 991px) {
     .anadirHabito {

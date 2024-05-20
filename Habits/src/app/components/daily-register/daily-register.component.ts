@@ -33,7 +33,7 @@ export class DailyRegisterComponent implements OnInit{
     if (habito.progreso > 100) {
       habito.progreso = 100;
     }
-    this.habitosService.updateHabito(habito.id.toString(), habito).subscribe(() => {
+    this.habitosService.updateHabito(habito.id, habito).subscribe(() => {
       this.habitosService.getHabitos().subscribe(habitos => {
         this.habitos = habitos;
       });

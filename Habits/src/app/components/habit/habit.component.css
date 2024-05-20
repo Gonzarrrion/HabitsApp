@@ -1,8 +1,10 @@
 /* Estilos Inicio */
+.content {
+  display: flex;
+}
 .inicio {
     background-color: white;
-    flex: 0 0 75%;
-    max-width: 75%;
+    flex: 1;
     margin-left: 20px;
   }
   .habito {
@@ -12,6 +14,8 @@
     justify-content: space-between;
     gap: 16px;
     padding: 13px 10px 50px;
+    margin-top: 10px;
+    width: 98.4%;
   }
   @media (max-width: 991px) {
     .habito {

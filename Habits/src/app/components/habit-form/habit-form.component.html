@@ -9,11 +9,11 @@
             <input type="text" class="input" required [(ngModel)]="habito.nombre" name="nombreHabito">
 
             <div class="texto">Frecuencia:</div>
-            <select required class="desplegable" [(ngModel)]="habito.frecuencia">
-                <option value="{{ habito.frecuencia }}">Diario</option>
-                <option value="{{ habito.frecuencia }}">Semanal</option>
-                <option value="{{ habito.frecuencia }}">Mensual</option>
-                <option value="{{ habito.frecuencia }}">Anual</option>
+            <select required class="desplegable" [(ngModel)]="habito.frecuencia" name="frecuenciaHabito">
+                <option value="dia">Diario</option>
+                <option value="semana">Semanal</option>
+                <option value="mes">Mensual</option>
+                <option value="ano">Anual</option>
             </select>
             
 

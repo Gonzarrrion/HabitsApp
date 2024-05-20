@@ -1,4 +1,7 @@
 /* Estilos Configuracion */
+.content {
+  display: flex;
+}
 .configuracion {
     background-color: #e8f5fd;
     display: flex;
@@ -6,6 +9,8 @@
     flex-direction: column;
     width: 70%;
     padding: 21px 80px 50px 45px;
+    margin-top: 10px;
+    margin-left: 20px;
   }
   @media (max-width: 991px) {
     .informes {

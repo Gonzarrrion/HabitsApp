@@ -1,4 +1,7 @@
 /* Estilos Registro Diario */
+.content {
+  display: flex;
+}
 .registroDiario {
     background-color: white;
     display: flex;
@@ -21,7 +24,8 @@
     justify-content: space-between;
     gap: 16px;
     padding: 13px 10px 50px;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-left: 20px;
   }
   @media (max-width: 991px) {
     .habito {
