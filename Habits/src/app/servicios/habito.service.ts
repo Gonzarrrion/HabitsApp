@@ -2,7 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Habito } from '../models/habito'; 
+import { firstValueFrom } from 'rxjs';
 import { apiResponse } from '../interfaces/habito';
+import { forkJoin } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -35,21 +38,24 @@ export class HabitosService {
     return this.http.delete<Habito>(`${this.apiUrl}/${id}`);
   }
 
-  fijarHabito(id: number): Observable<void> {
-    return new Observable<void>(subscriber => {
-      this.getHabitoById(id).subscribe(habito => {
-        if (habito) {
-          habito.posicionLista = 1;
-          this.habitos.forEach(h => {
-            if (h.id !== habito.id) {
-              h.posicionLista++;
-              this.updateHabito(h.id, h).subscribe(); // Actualiza la base de datos
-            }
+  fijarHabito(id: number): void {
+    this.getHabitoById(id).subscribe(habito => {
+      if (habito) {
+        const updates: Observable<Habito | undefined>[] = [];
+        this.habitos.forEach((h, index) => {
+          if (h.posicionLista <= habito.posicionLista) {
+            h.posicionLista++;
+            updates.push(this.updateHabito(h.id, h));
+          }
+        });
+        habito.posicionLista = 1;
+        updates.unshift(this.updateHabito(habito.id, habito));
+        forkJoin(updates).subscribe(() => {
+          this.getHabitos().subscribe(habitos => {
+            this.habitos = habitos.sort((a, b) => a.posicionLista - b.posicionLista);
           });
-          subscriber.next();
-          subscriber.complete();
-        }
-      });
+        });
+      }
     });
   }
 }

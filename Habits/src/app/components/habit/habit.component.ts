@@ -28,11 +28,7 @@ export class HabitComponent implements OnInit {
   
   fijarHabito(event: Event, id: number) {
     event.preventDefault();
-    this.habitosService.fijarHabito(id).subscribe(() => {
-      this.habitosService.getHabitos().subscribe(habitos => {
-        this.habitos = habitos.sort((a, b) => a.posicionLista - b.posicionLista);
-      });
-    });
+    this.habitosService.fijarHabito(id);
   }
   
   eliminarHabito(event: Event, id: number) {

@@ -18,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 export class DailyRegisterComponent implements OnInit{
   
   habitos: Habito[] = [];
-
+  valoresCumplidos: {[key: number]: number} = {};
   constructor(private habitosService: HabitosService) { }
 
   ngOnInit() {
@@ -29,14 +29,20 @@ export class DailyRegisterComponent implements OnInit{
 
   registrarCumplimiento(event: Event, habito: Habito) {
     event.preventDefault();
-    habito.progreso += (habito.cumplidos / habito.meta) * 100;
-    if (habito.progreso > 100) {
-      habito.progreso = 100;
-    }
-    this.habitosService.updateHabito(habito.id, habito).subscribe(() => {
-      this.habitosService.getHabitos().subscribe(habitos => {
-        this.habitos = habitos;
+    let valorCumplido = this.valoresCumplidos[habito.id];
+    if (habito.cumplidos + valorCumplido <= habito.meta) {
+      habito.cumplidos += valorCumplido;
+      habito.progreso += (valorCumplido / habito.meta) * 100;
+      if (habito.progreso > 100) {
+        habito.progreso = 100;
+      }
+      this.habitosService.updateHabito(habito.id, habito).subscribe(() => {
+        this.habitosService.getHabitos().subscribe(habitos => {
+          this.habitos = habitos;
+        });
       });
-    });
+    } else {
+      alert('El valor ingresado sobrepasa la meta');
+    }
   }
 }
