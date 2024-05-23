@@ -20,10 +20,7 @@
                 <div class="texto"><em>{{ habito?.frecuencia }}</em></div>
             
                 <div class="texto"><strong>Meta Asociada:</strong></div>
-                <div class="texto"><em>{{ habito?.meta }}</em></div>
-            
-                <div class="texto"><strong>Visualización:</strong></div>
-                <div class="texto"><em>{{ habito?.visualizacion }}</em></div>
+                <div class="texto"><em>{{ habito?.meta }}</em></div>>
             </div>
 
             <div class="columna">
@@ -42,20 +39,6 @@
 
                 <div class="texto">Meta Asociada:</div>
                 <input type="number" min="1" required class="input" [(ngModel)]="habitoNuevo.meta" name="metaHabito">
-
-                <div class="texto">Visualización:</div>
-                <div class="opcionesVisualizar">
-                    <label class="texto">
-                        <input type="radio" name="visualizacion" value="tick" [(ngModel)]="habitoNuevo.visualizacion">
-                        Tick:
-                    </label>
-                    <img loading="lazy" src="../../../assets/Imagenes/tick.svg" class="img">
-                    <label class="texto">
-                        <input type="radio" name="visualizacion" value="barra" [(ngModel)]="habitoNuevo.visualizacion">
-                        Barra de Progreso:
-                    </label>
-                    <img loading="lazy" src="../../../assets/Imagenes/barraProgreso.svg" class="img">
-                </div>
 
                 <div class="texto">Descripción del Hábito:</div>
                 <textarea class="inputGrande" [(ngModel)]="habitoNuevo.descripcion" name="descripcionHabito"></textarea>

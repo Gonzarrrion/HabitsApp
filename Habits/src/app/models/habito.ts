@@ -7,7 +7,6 @@ export interface Habito {
   cumplidos: number;
   meta: number;
   frecuencia: Frecuencia;
-  visualizacion: Visualizacion;
   posicionLista: number;
   ultimoReset: Date;
 }
@@ -17,9 +16,4 @@ export enum Frecuencia {
   Semana = 'semana',
   Mes = 'mes',
   Ano = 'ano'
-}
-
-export enum Visualizacion {
-  Tick = 'tick',
-  Barra = 'barra'
 }

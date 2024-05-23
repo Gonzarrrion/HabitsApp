@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Habito, Frecuencia, Visualizacion } from '../../models/habito';
+import { Habito, Frecuencia } from '../../models/habito';
 import { HabitosService } from '../../servicios/habito.service';
 import { SideNavbarComponent } from '../side-navbar/side-navbar.component';
 import { TopNavbarComponent } from '../top-navbar/top-navbar.component';
@@ -26,7 +26,6 @@ export class EditHabitComponent implements OnInit{
     cumplidos: 0,
     meta: 0,
     frecuencia: Frecuencia.Dia,
-    visualizacion: Visualizacion.Tick,
     posicionLista: 0,
     ultimoReset: new Date()
   };

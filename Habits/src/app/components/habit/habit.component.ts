@@ -21,26 +21,35 @@ export class HabitComponent implements OnInit {
   constructor(private router: Router, private habitosService: HabitosService) { }
 
   ngOnInit() {
+    // Comprobamos si hay que resetear la lista de habitos
     this.habitosService.getHabitos().subscribe(habitos => {
-      this.habitos = habitos.sort((a, b) => a.posicionLista - b.posicionLista);
+      for (let habito of habitos) {
+        this.habitosService.resetHabito(habito);
+      }
     });
+    this.updateHabitos();
   }
   
   fijarHabito(event: Event, id: number) {
     event.preventDefault();
     this.habitosService.fijarHabito(id);
+    this.updateHabitos();
   }
   
   eliminarHabito(event: Event, id: number) {
     event.preventDefault();
     this.habitosService.deleteHabito(id).subscribe(() => {
-      this.habitosService.getHabitos().subscribe(habitos => {
-        this.habitos = habitos.sort((a, b) => a.posicionLista - b.posicionLista);
-      });
+      this.updateHabitos();
     });
   }
 
   editHabito(habitoId: number) {
     this.router.navigate(['/edit-habit', habitoId]);
   }
+  private updateHabitos() {
+    this.habitosService.getHabitos().subscribe(habitos => {
+      this.habitos = habitos.sort((a, b) => a.posicionLista - b.posicionLista);
+    });
+  }
 }
+

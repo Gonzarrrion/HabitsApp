@@ -1,0 +1,47 @@
+[{
+  "_id": {
+    "$oid": "6647aa5abab162c3b0c86e32"
+  },
+  "id": 1,
+  "nombre": "Habito 1",
+  "descripcion": "Descripcion del habito cambiada\n",
+  "progreso": 80,
+  "cumplidos": 0,
+  "meta": 20,
+  "frecuencia": "dia",
+  "posicionLista": 1,
+  "ultimoReset": {
+    "$date": "2025-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6647aa5abab162c3b0c86e33"
+  },
+  "id": 2,
+  "nombre": "Habito 3",
+  "descripcion": "Descr41dasd",
+  "progreso": 8,
+  "cumplidos": 80,
+  "meta": 1000,
+  "frecuencia": "semana",
+  "ultimoReset": {
+    "$date": "2022-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6647aa5abab162c3b0c86e34"
+  },
+  "id": 3,
+  "nombre": "Habito 2",
+  "descripcion": "Descripcion del habito 3",
+  "progreso": 0,
+  "cumplidos": 0,
+  "meta": 10,
+  "frecuencia": "mes",
+  "posicionLista": 4,
+  "ultimoReset": {
+    "$date": "2025-01-01T00:00:00.000Z"
+  }
+}]

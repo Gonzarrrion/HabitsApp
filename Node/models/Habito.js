@@ -1,10 +1,5 @@
 const mongoose = require('mongoose');
 
-const Visualizacion = Object.freeze({
-  Tick: 'tick',
-  Barra: 'barra'
-});
-
 const Frecuencia = Object.freeze({
   Dia: 'dia',
   Semana: 'semana',
@@ -23,16 +18,11 @@ const HabitoSchema = new mongoose.Schema({
     type: String,
     enum: Object.values(Frecuencia),
   },
-  visualizacion: {
-    type: String,
-    enum: Object.values(Visualizacion),
-  },
   posicionLista: Number,
   ultimoReset: Date,
 });
 
 Object.assign(HabitoSchema.statics, {
-  Visualizacion,
   Frecuencia,
 });
 
